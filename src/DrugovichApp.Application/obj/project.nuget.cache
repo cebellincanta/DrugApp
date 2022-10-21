@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "2w6bCwoSFcMkZ6tuOHwUJwXrDLMR1ohUwY0GWr+dXAmQljpfF9ZPYbY+ryJBW4nfywDN6/7veifaz4tjjY0A8w==",
+  "dgSpecHash": "d16tDVdMokzSV0ENDeuTPubLvFWKBEkm7BekcUcsmW4ChQ2K2BLUl5SKwGLtcg3h4biHPupxut+JU101QMKn8g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Eduardo\\.nuget\\packages\\fluentvalidation\\11.2.2\\fluentvalidation.11.2.2.nupkg.sha512",
+    "C:\\Users\\Eduardo\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
+    "C:\\Users\\Eduardo\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
