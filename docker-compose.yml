@@ -1,0 +1,41 @@
+version: '3.5'
+ 
+services:
+ 
+  postgresql_database:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=drugovich
+      - POSTGRES_PASSWORD=drugovich@24102022
+      - POSTGRES_DB=DrugovichDb
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+      - ./dbscripts/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql
+     
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org
+      - PGADMIN_DEFAULT_PASSWORD=drugovich@24102022
+    ports:
+      - "5050:80"
+    restart: always
+    volumes:
+      - pgadmin:/root/.pgadmin
+
+  drugovichapp_api:
+    image: ${DOCKER_REGISTRY-}drugovichapp.api
+    build:
+      context: .
+      dockerfile: src/DrugovichApp.Api/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - postgresql_database
+ 
+volumes:
+  database-data:
+  pgadmin:

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "EQCaNOzLX/83HnbzJE/jV95uy3EyJ+yfcSrPj+2EFlK7b5R/r4znhVJuGri8EvVTZLSrkra4aNEjL+afTaTWUA==",
+  "dgSpecHash": "OSSw2JGuNjVTNBMjh8K77nVwBInioCzLlvzQQ7hw0F3CNXy9RbzqCZT76Tyz3w/+4FN6F7v1KAG2qjUZDghd6w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Api\\DrugovichApp.Api.csproj",
   "expectedPackageFiles": [
@@ -46,6 +46,7 @@
     "C:\\Users\\Eduardo\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Eduardo\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\serilog\\2.12.0\\serilog.2.12.0.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\serilog.aspnetcore\\6.0.1\\serilog.aspnetcore.6.0.1.nupkg.sha512",
     "C:\\Users\\Eduardo\\.nuget\\packages\\serilog.extensions.hosting\\5.0.1\\serilog.extensions.hosting.5.0.1.nupkg.sha512",

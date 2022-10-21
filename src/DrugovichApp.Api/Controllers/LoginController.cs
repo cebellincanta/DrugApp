@@ -1,4 +1,4 @@
-using DrugovichApp.Api.Security;
+using DrugovichApp.Api.AppSecurity;
 using DrugovichApp.Api.ViewModel;
 using DrugovichApp.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
