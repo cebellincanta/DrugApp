@@ -1,14 +1,21 @@
-using DrugovichApp.Domain.Entities;
+using DrugovichApp.Infrastructure.Extensions;
+using DrugovichApp.Infrastructure.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 namespace DrugovichApp.Infrastructure.Context;
 
 public class DrugovichAppContext : DbContext
 {
-    public DrugovichAppContext(DbContextOptionsBuilder options) => options.UseInMemoryDatabase(databaseName: "DrugovichDB");
+    public DrugovichAppContext(DbContextOptions<DrugovichAppContext> options) : base(options)
+    {}
 
-    public DbSet<Cliente> Cliente { get; set; }
-    public DbSet<Gerente> Gerente { get; set; }
-    public DbSet<Grupo> Grupo { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.AddConfiguration(new ClienteMapping());
+        modelBuilder.AddConfiguration(new GerenteMapping());
+        modelBuilder.AddConfiguration(new GrupoMapping());
+        modelBuilder.AddConfiguration(new UsuarioMapping());
+    }
 
 }

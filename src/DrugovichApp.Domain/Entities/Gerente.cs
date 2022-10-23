@@ -9,5 +9,6 @@ public class Gerente : EntityBase<Guid>
     public string Nome { get; set; }
     public string Email { get; set; }
     public string Nivel { get; set; }
+    public Usuario Usuario{ get; set; }
     
 }

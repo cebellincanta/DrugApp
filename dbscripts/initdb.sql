@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS Grupo (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  id uuid not NULL PRIMARY KEY,
   date_create TIMESTAMP NOT NULL,
   is_active BIT NOT NULL,
   nome VARCHAR(150) UNIQUE NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS  Gerente (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  id uuid not NULL PRIMARY KEY,
   date_create TIMESTAMP NOT NULL,
   is_active BIT NOT NULL,
   nome VARCHAR(200) UNIQUE NOT NULL,
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS  Gerente (
 );
 
 CREATE TABLE IF NOT EXISTS  Usuario (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  id uuid not NULL PRIMARY KEY,
   date_create TIMESTAMP NOT NULL,
   is_active BIT NOT NULL,
   nome_usuario VARCHAR(20) UNIQUE NOT NULL,
@@ -25,10 +25,10 @@ CREATE TABLE IF NOT EXISTS  Usuario (
 );
 
 CREATE TABLE IF NOT EXISTS  Cliente (
-  id uuid DEFAULT gen_random_uuid() PRIMARY KEY,
+  id uuid not NULL PRIMARY KEY,
   date_create TIMESTAMP NOT NULL,
   is_active BIT NOT NULL,
-  nome VARCHAR(20) UNIQUE NOT NULL,
+  nome VARCHAR(200) UNIQUE NOT NULL,
   cnpj VARCHAR(15) UNIQUE NOT NULL,
   data_fundacao TIMESTAMP NOT NULL,
   grupo_id uuid NOT NULL,

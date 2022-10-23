@@ -7,4 +7,5 @@ namespace DrugovichApp.Domain.Entities;
 public class Grupo : EntityBase<Guid>
 {
     public string Nome { get; set; }
+    public List<Cliente> Cliente {get; set;}
 }
