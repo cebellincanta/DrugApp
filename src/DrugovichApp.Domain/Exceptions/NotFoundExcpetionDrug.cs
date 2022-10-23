@@ -5,6 +5,6 @@ namespace DrugovichApp.Domain.Exceptions;
 
 public class NotFoundExcpetionDrug : ExceptionDrugBase
 {
-   public NotFoundExcpetionDrug(IEnumerable<ValidacaoErro> validacoes) : base(HttpStatusCode.NotFound, validacoes){}
+   public NotFoundExcpetionDrug(List<ValidacaoErro> validacoes) : base(HttpStatusCode.NotFound, validacoes){}
 
 }

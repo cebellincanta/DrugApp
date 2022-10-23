@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DrugovichApp.Application\DrugovichApp.Application.csproj" />
     <ProjectReference Include="..\DrugovichApp.Domain\DrugovichApp.Domain.csproj" />
     <ProjectReference Include="..\DrugovichApp.Infrastructure\DrugovichApp.Infrastructure.csproj" />
   </ItemGroup>

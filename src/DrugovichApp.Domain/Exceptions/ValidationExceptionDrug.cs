@@ -5,5 +5,6 @@ namespace DrugovichApp.Domain.Exceptions;
 
 public class ValidationExceptionDrug : ExceptionDrugBase
 {
-   public ValidationExceptionDrug(IEnumerable<ValidacaoErro> validacoes) : base(HttpStatusCode.BadRequest, validacoes){}
+   public ValidationExceptionDrug(List<ValidacaoErro> validacoes) : base(HttpStatusCode.BadRequest, validacoes){}
+
 }
