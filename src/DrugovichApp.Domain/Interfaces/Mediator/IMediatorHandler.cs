@@ -1,4 +1,4 @@
-namespace DrugovichApp.Domain.Interfaces.Repositories;
+namespace DrugovichApp.Domain.Interfaces.Mediator;
 
 public interface IMediatorHandler<T,TReturn> where T : class
 {
