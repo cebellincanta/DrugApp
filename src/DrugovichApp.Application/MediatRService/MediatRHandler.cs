@@ -18,7 +18,7 @@ public class MediatRHandler<T, TReturn> : IMediatorHandler<T, TReturn> where T :
         return (TReturn?)await _mediator.Send(command);
     }
 
-    public async Task<TReturn> SendQuery(T query)
+    public async Task<TReturn> SendQueryAsync(T query)
     {
         return (TReturn?)await _mediator.Send(query);
     }

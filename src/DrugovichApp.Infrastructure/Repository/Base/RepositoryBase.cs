@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using DrugovichApp.Domain.Entities.Base;
+using DrugovichApp.Domain.EnumDrug;
 using DrugovichApp.Domain.Interfaces.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,7 +32,7 @@ public class RepositoryBase<TId, TEntity> : IRepositoryBase<TId, TEntity> where 
     {
         var o = await GetFirstAsync(x => x.Id.Equals(id));
         if(o == null) return false;
-        o.IsActive = false;
+        o.IsActive = StatusData.INACTIVE;
         await Update(o);
         return true;
     }
@@ -40,7 +41,7 @@ public class RepositoryBase<TId, TEntity> : IRepositoryBase<TId, TEntity> where 
 
     public async Task<IEnumerable<TEntity>> GetAsync()=> await _dbSet.ToListAsync();
 
-    public async Task<TEntity> GetFirstAsync(Expression<Func<TEntity, bool>> predicate) => await _dbSet.Where(predicate).FirstAsync();
+    public async Task<TEntity> GetFirstAsync(Expression<Func<TEntity, bool>> predicate) => await _dbSet.Where(predicate).FirstOrDefaultAsync();
 
     public Task<TEntity> Update(TEntity obj)
     {

@@ -1,4 +1,5 @@
 using DrugovichApp.Domain.DTO;
+using DrugovichApp.Domain.EnumDrug;
 using DrugovichApp.Domain.Exceptions;
 using DrugovichApp.Domain.Interfaces.Repositories;
 using DrugovichApp.Domain.Mapper;
@@ -25,7 +26,7 @@ public class ClienteHandler : IRequestHandler<ClienteRequest, ClienteDTO>
             throw new NotFoundExcpetionDrug(erro);
         } 
 
-        ClienteJaExtiste.IsActive = false;
+        ClienteJaExtiste.IsActive = StatusData.INACTIVE;
         var result = await _ClienteRespository.Update(ClienteJaExtiste);
 
         return ClienteMapperDTO.ToDTO(result);

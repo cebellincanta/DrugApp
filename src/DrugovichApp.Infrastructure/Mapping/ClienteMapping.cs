@@ -9,10 +9,11 @@ public class ClienteMapping : EntityBaseMappingConfiguration<Guid, Cliente>
     public override void Map(EntityTypeBuilder<Cliente> builder)
     {
         base.Map(builder);
-        builder.ToTable("Cliente");
+        builder.ToTable("cliente");
         builder.Property(x => x.Nome).IsRequired().HasColumnName("nome").HasColumnType("200");
         builder.Property(x => x.Cnpj).IsRequired().HasColumnName("cnpj").HasColumnType("15");
         builder.Property(x => x.DataFundacao).IsRequired().HasColumnName("data_fundacao").HasColumnType("datetime");
+        builder.Property(x => x.GrupoId).IsRequired().HasColumnName("grupo_id");
         builder.HasOne(x => x.Grupo).WithMany(x => x.Cliente).HasForeignKey(x => x.GrupoId);
 
     }

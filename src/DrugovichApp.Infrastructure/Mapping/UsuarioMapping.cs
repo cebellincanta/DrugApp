@@ -9,10 +9,10 @@ public class UsuarioMapping : EntityBaseMappingConfiguration<Guid, Usuario>
     public override void Map(EntityTypeBuilder<Usuario> builder)
     {
         base.Map(builder);
-        builder.ToTable("Usuario");
-        builder.Property(x => x.NomeUsuario).IsRequired().HasColumnName("nome_usuario").HasColumnType("20");
+        builder.ToTable("usuario");
+        builder.Property(x => x.NomeUsuario).IsRequired().HasColumnName("nome_usuario").HasColumnType("50");
         builder.Property(x => x.Senha).IsRequired().HasColumnName("senha").HasColumnType("50");
-        builder.HasOne(x => x.Gerente).WithOne(x => x.Usuario).HasForeignKey<Usuario>(x => x.GerenteId);
+        builder.HasOne(x => x.Gerente).WithOne(x => x.Usuario).HasForeignKey<Gerente>(x => x.UsuarioId);
     }
 
 }

@@ -1,6 +1,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using DrugovichApp.Domain.DTO;
 using DrugovichApp.Domain.Entities;
 using Microsoft.IdentityModel.Tokens;
 
@@ -8,7 +9,7 @@ namespace DrugovichApp.Api.AppSecurity;
 
 public static class TokenBaseService
 {
-    public static string Generate(Usuario usuario)
+    public static string Generate(UsuarioDTO usuario)
     {
 
         var token = new JwtSecurityTokenHandler();

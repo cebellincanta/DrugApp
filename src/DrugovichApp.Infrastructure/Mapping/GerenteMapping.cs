@@ -9,10 +9,11 @@ public class GerenteMapping : EntityBaseMappingConfiguration<Guid, Gerente>
     public override void Map(EntityTypeBuilder<Gerente> builder)
     {
         base.Map(builder);
-        builder.ToTable("Gerente");
+        builder.ToTable("gerente");
         builder.Property(x => x.Nome).IsRequired().HasColumnName("nome").HasColumnType("200");
-        builder.Property(x => x.Email).IsRequired().HasColumnName("cnpj").HasColumnType("20");
+        builder.Property(x => x.Email).IsRequired().HasColumnName("email").HasColumnType("200");
         builder.Property(x => x.Nivel).IsRequired().HasColumnName("nivel").HasColumnType("10");
+        builder.Property(x => x.UsuarioId).IsRequired().HasColumnName("usuario_id");
 
     }
 

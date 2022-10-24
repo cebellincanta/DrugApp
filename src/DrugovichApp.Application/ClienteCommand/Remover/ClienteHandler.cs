@@ -1,4 +1,5 @@
 using DrugovichApp.Domain.DTO;
+using DrugovichApp.Domain.EnumDrug;
 using DrugovichApp.Domain.Exceptions;
 using DrugovichApp.Domain.Interfaces.Repositories;
 using DrugovichApp.Domain.Mapper;
@@ -25,7 +26,7 @@ public class GrupoHandler : IRequestHandler<GrupoRequest, GrupoDTO>
             throw new NotFoundExcpetionDrug(erro);
         } 
 
-        grupoJaExtiste.IsActive = false;
+        grupoJaExtiste.IsActive = StatusData.INACTIVE;
         var result = await _grupoRespository.Update(grupoJaExtiste);
 
         return GrupoMapperDTO.ToDTO(result);

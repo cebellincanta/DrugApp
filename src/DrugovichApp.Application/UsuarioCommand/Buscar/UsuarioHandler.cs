@@ -18,13 +18,23 @@ public class UsuarioHandler : IRequestHandler<UsuarioRequest, UsuarioDTO>
     public async Task<UsuarioDTO> Handle(UsuarioRequest request, CancellationToken cancellationToken)
     {
         var erro = new List<ValidacaoErro>();
-        var UsuarioJaExtiste = await _UsuarioRespository.GetFirstAsync(x => x.NomeUsuario == request.NomeUsuario && x.Senha == request.Senha);
-        if(UsuarioJaExtiste is null)
+        try
         {
-            erro.Add(new ValidacaoErro("Nome Usuario", $"O Usuario não existe ou senha esta incorreta."));
-            throw new NotFoundExcpetionDrug(erro);
-        } 
+            var UsuarioJaExtiste = await _UsuarioRespository.GetFirstAsync(x => x.NomeUsuario == request.NomeUsuario && x.Senha == request.Senha);
+            if (UsuarioJaExtiste is null)
+            {
+                erro.Add(new ValidacaoErro("Nome Usuario", $"O Usuario não existe ou senha esta incorreta."));
+                throw new NotFoundExcpetionDrug(erro);
+            }
 
-        return UsuarioMapperDTO.ToDTO(UsuarioJaExtiste);
+            return UsuarioMapperDTO.ToDTO(UsuarioJaExtiste);
+
+        }catch(Exception e)
+        {
+            erro.Add(new ValidacaoErro("Erro", e.Message));
+            throw new NotFoundExcpetionDrug(erro);
+        }
+
+
     }
 }

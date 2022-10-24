@@ -2,10 +2,14 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using DrugovichApp.Api.Filter;
+using DrugovichApp.Infrastructure.Repository;
+using DrugovichApp.IOC;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Json;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
@@ -13,7 +17,7 @@ using Serilog;
 namespace DrugovichApp.Api;
 
 [ExcludeFromCodeCoverage]
-public class Application 
+public class Application
 {
     public static void Init(string[] args)
     {
@@ -22,10 +26,24 @@ public class Application
 
         builder.Host.UseSerilog();
         builder.Configuration.AddEnvironmentVariables();
-        builder.Services.AddControllers();
+        builder.Services.Register(builder.Configuration);
+
+        builder.Services.AddControllers(
+            config =>
+            {
+                config.Filters.Add(typeof(ExceptionFilter));
+                config.Filters.Add(typeof(UnitOfWork));
+
+            }
+        ).AddJsonOptions(
+            options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            }
+        );
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddHealthChecks();
-        
+
 
         //Padronização do JSON nas requisições 
         builder.Services.Configure<JsonOptions>(
@@ -65,18 +83,15 @@ public class Application
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-            } 
+            }
          );
 
-        builder.Services.AddAuthorization(options =>
-        {
-            options.AddPolicy("user", policy => policy.RequireClaim("Store", "user"));
-            options.AddPolicy("admin", policy => policy.RequireClaim("Store", "admin"));
-        });
         //Swagger
         builder.Services.AddSwaggerGen(
-            s =>{
-                s.SwaggerDoc(
+        s =>
+        {
+            s.CustomSchemaIds(type => type.ToString());
+            s.SwaggerDoc(
                     "v1",
                     new OpenApiInfo
                     {
@@ -86,6 +101,29 @@ public class Application
 
                     }
                 );
+                s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Adicionar o token",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.Http,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+                s.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type=ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            new string[]{}
+        }
+    });
             }
         );
 

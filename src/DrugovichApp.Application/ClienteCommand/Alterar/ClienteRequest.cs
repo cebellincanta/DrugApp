@@ -4,7 +4,7 @@ using MediatR;
 
 namespace DrugovichApp.Application.ClienteCommand.Alterar;
 
-public class GrupoRequest : IRequest<GrupoDTO>
+public class ClienteRequest : IRequest<ClienteDTO>
 {
     [JsonPropertyName("id")]
     public Guid Id { get; set; }
@@ -14,4 +14,7 @@ public class GrupoRequest : IRequest<GrupoDTO>
     public string Cnpj { get; set; }
     [JsonPropertyName("dataFundacao")]
     public DateTime DataFundacao { get; set; }
+    [JsonPropertyName("grupoId")]
+    public Guid GrupoId { get; set; }
+    
 }

@@ -2,10 +2,11 @@ using DrugovichApp.Domain.Entities;
 using DrugovichApp.Domain.Interfaces.Repositories;
 using DrugovichApp.Infrastructure.Context;
 using DrugovichApp.Infrastructure.Repository.Base;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DrugovichApp.Infrastructure.Repository;
 
-public class UnitOfWork : IUnitOfWork
+public class UnitOfWork :IAsyncActionFilter, IUnitOfWork
 {
     private readonly DrugovichAppContext _context;
 
@@ -14,8 +15,17 @@ public class UnitOfWork : IUnitOfWork
         _context = context;
     }
 
-    public async Task CommitAsync()
+     public async Task<int> CommitAsync()
     {
-        await _context.SaveChangesAsync();
+        return await _context.SaveChangesAsync();
+    }
+
+    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    {
+        var result = await next();
+        if (result.Exception == null || result.ExceptionHandled)
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

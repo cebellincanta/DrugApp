@@ -11,6 +11,6 @@ public abstract class EntityBaseMappingConfiguration<TId, TEntity> where TEntity
         builder.HasKey(x => x.Id);
         builder.Property(x => x.Id).IsRequired().HasColumnName("id");
         builder.Property(x => x.DateCreate).IsRequired().HasColumnName("date_create").HasColumnType("datetime");
-        builder.Property(x => x.IsActive).IsRequired().HasColumnName("is_active").HasDefaultValue(true);
+        builder.Property(x => x.IsActive).IsRequired().HasColumnName("is_active");
     }
 }

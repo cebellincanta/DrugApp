@@ -8,6 +8,5 @@ public class Usuario : EntityBase<Guid>
 {
     public string NomeUsuario { get; set; }
     public string Senha { get; set; }
-    public Guid GerenteId{ get; set; }
-    public Gerente Gerente{ get; set; }
+    public virtual Gerente Gerente{ get; set; }
 }

@@ -9,9 +9,9 @@ public class GrupoMapping : EntityBaseMappingConfiguration<Guid, Grupo>
     public override void Map(EntityTypeBuilder<Grupo> builder)
     {
         base.Map(builder);
-        builder.ToTable("Grupo");
+        builder.ToTable("grupo");
         builder.Property(x => x.Nome).IsRequired().HasColumnName("nome").HasColumnType("150");
-
+        
 
     }
 

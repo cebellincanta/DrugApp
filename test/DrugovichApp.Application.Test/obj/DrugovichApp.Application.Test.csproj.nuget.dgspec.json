@@ -4,14 +4,83 @@
     "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj": {
+    "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj",
-        "projectName": "DrugovichApp.Application.Test",
-        "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj",
+        "projectUniqueName": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj",
+        "projectName": "DrugovichApp.Application",
+        "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj",
         "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\obj\\",
+        "outputPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj",
+        "projectName": "DrugovichApp.Domain",
+        "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj",
+        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,10 +108,84 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj",
+        "projectName": "DrugovichApp.Application.Test",
+        "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\DrugovichApp.Application.Test.csproj",
+        "packagesPath": "C:\\Users\\Eduardo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\test\\DrugovichApp.Application.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Eduardo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj": {
+                "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Application\\DrugovichApp.Application.csproj"
+              },
+              "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\Eduardo\\BackEndTest\\DrugovichApp\\src\\DrugovichApp.Domain\\DrugovichApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
+            "AutoFixture": {
+              "target": "Package",
+              "version": "[4.17.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.8.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

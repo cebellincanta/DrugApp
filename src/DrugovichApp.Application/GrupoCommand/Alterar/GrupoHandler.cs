@@ -1,4 +1,3 @@
-using DrugovichApp.Application.GrupoCommand.Adicionar;
 using DrugovichApp.Domain.DTO;
 using DrugovichApp.Domain.Exceptions;
 using DrugovichApp.Domain.Interfaces.Repositories;

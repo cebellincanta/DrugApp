@@ -1,4 +1,5 @@
 using DrugovichApp.Domain.DTO;
+using DrugovichApp.Domain.EnumDrug;
 using DrugovichApp.Domain.Exceptions;
 using DrugovichApp.Domain.Interfaces.Repositories;
 using DrugovichApp.Domain.Mapper;
@@ -17,7 +18,7 @@ public class GrupoHandler : IRequestHandler<GrupoRequest, List<GrupoDTO>>
 
     async Task<List<GrupoDTO>> IRequestHandler<GrupoRequest, List<GrupoDTO>>.Handle(GrupoRequest request, CancellationToken cancellationToken)
     {
-        var grupos = await _grupoRespository.GetAsync(w => w.IsActive);
+        var grupos = await _grupoRespository.GetAsync(w => w.IsActive == StatusData.ACTIVE);
         return grupos.Select(grupo => GrupoMapperDTO.ToDTO(grupo)).ToList();
     }
 }
